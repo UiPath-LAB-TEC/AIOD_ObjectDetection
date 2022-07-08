@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ObjectDetection" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="847.333333333333,3978.66666666667" sap2010:WorkflowViewState.IdRef="ObjectDetection_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:Select_Multiple_Files;assembly=Select Multiple Files" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ObjectDetection" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1134,5655" sap2010:WorkflowViewState.IdRef="ObjectDetection_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:Select_Multiple_Files;assembly=Select Multiple Files" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.MLServices;assembly=UiPath.MLServices" xmlns:uma="clr-namespace:UiPath.MLServices.Activities;assembly=UiPath.MLServices.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="92">
+    <scg:List x:TypeArguments="x:String" Capacity="48">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -48,10 +48,11 @@
       <x:String>Select_Multiple_Files</x:String>
       <x:String>System.Security</x:String>
       <x:String>System.Net</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="43">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -95,9 +96,10 @@
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
       <AssemblyReference>Select Multiple Files</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ObjectDetection" sap:VirtualizedContainerService.HintSize="634,3914" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ObjectDetection" sap:VirtualizedContainerService.HintSize="1080,5590" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="jsonResp" />
       <Variable x:TypeArguments="x:String" Name="img" />
@@ -118,26 +120,26 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="objectDetection_Url" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="592,52.6666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="AIOD_ML_Url" DisplayName="Get Asset" FolderPath="DSF_Demo/Product/AICenter &amp; DU/AIOD_ObjectDetection" sap:VirtualizedContainerService.HintSize="1038,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[UserName]</OutArgument>
       </ui:GetRobotAsset.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotAsset>
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="objectDetection_Key" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="592,140.666666666667" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="AIOD_ML_Key" DisplayName="Get Asset" FolderPath="DSF_Demo/Product/AICenter &amp; DU/AIOD_ObjectDetection" sap:VirtualizedContainerService.HintSize="1038,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
       <ui:GetRobotAsset.Value>
         <OutArgument x:TypeArguments="x:String">[Password]</OutArgument>
       </ui:GetRobotAsset.Value>
     </ui:GetRobotAsset>
-    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormHeight="{x:Null}" FormTitle="{x:Null}" FormWidth="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="984a8c33-5da8-409f-8446-28458ba26244" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormFieldsOutputData="[OutputJson]" FormSchema="%[{&quot;label&quot;:&quot;How to Proceed&quot;,&quot;optionsLabelPosition&quot;:&quot;right&quot;,&quot;inline&quot;:false,&quot;tableView&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Proceed with Predefined Input&quot;,&quot;value&quot;:&quot;proceedWithPredefinedInput&quot;,&quot;shortcut&quot;:&quot;A&quot;},{&quot;label&quot;:&quot;Select your input files&quot;,&quot;value&quot;:&quot;selectYourInputFiles&quot;,&quot;shortcut&quot;:&quot;B&quot;}],&quot;key&quot;:&quot;radio&quot;,&quot;type&quot;:&quot;radio&quot;,&quot;input&quot;:true},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="592,210.666666666667" sap2010:WorkflowViewState.IdRef="FormActivity_6" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormHeight="{x:Null}" FormTitle="{x:Null}" FormWidth="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="984a8c33-5da8-409f-8446-28458ba26244" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormFieldsOutputData="[OutputJson]" FormSchema="%[{&quot;label&quot;:&quot;How to Proceed&quot;,&quot;optionsLabelPosition&quot;:&quot;right&quot;,&quot;inline&quot;:false,&quot;tableView&quot;:false,&quot;values&quot;:[{&quot;label&quot;:&quot;Proceed with Predefined Input&quot;,&quot;value&quot;:&quot;proceedWithPredefinedInput&quot;,&quot;shortcut&quot;:&quot;A&quot;},{&quot;label&quot;:&quot;Select your input images of vehicles that met with accident&quot;,&quot;value&quot;:&quot;selectYourInputFiles&quot;,&quot;shortcut&quot;:&quot;B&quot;}],&quot;key&quot;:&quot;radio&quot;,&quot;type&quot;:&quot;radio&quot;,&quot;input&quot;:true},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="1038,209" sap2010:WorkflowViewState.IdRef="FormActivity_6" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
       <ufa:FormActivity.Body>
         <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -155,9 +157,9 @@
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ufa:FormActivity.FormFieldsCollection>
     </ufa:FormActivity>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="592,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[SubmitJobj]" JsonString="[OutputJson]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Option Selected : &quot;+SubmitJobj(&quot;radio&quot;).ToString]" />
-    <If Condition="[SubmitJobj(&quot;radio&quot;).ToString.Equals(&quot;selectYourInputFiles&quot;)]" sap:VirtualizedContainerService.HintSize="592,420" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1038,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[SubmitJobj]" JsonString="[OutputJson]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1038,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Option Selected : &quot;+SubmitJobj(&quot;radio&quot;).ToString]" />
+    <If Condition="[SubmitJobj(&quot;radio&quot;).ToString.Equals(&quot;selectYourInputFiles&quot;)]" sap:VirtualizedContainerService.HintSize="1038,1758" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <Sequence.Variables>
@@ -172,21 +174,21 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_21">
+        <Sequence sap:VirtualizedContainerService.HintSize="604,1600" sap2010:WorkflowViewState.IdRef="Sequence_21">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign - init FoldePath" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Assign - init FoldePath" sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[FolderPath]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">images</InArgument>
+              <InArgument x:TypeArguments="x:String">Images</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign sap:VirtualizedContainerService.HintSize="562,60" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">[FilePaths]</OutArgument>
             </Assign.To>
@@ -194,16 +196,78 @@
               <InArgument x:TypeArguments="scg:List(x:String)">[Directory.GetFiles(FolderPath,"*.*",SearchOption.AllDirectories).ToList]</InArgument>
             </Assign.Value>
           </Assign>
+          <If Condition="[FilePaths.Count = 0]" sap:VirtualizedContainerService.HintSize="562,1308" sap2010:WorkflowViewState.IdRef="If_5">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="526,1121" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="choice" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MessageBox Caption="{x:Null}" Buttons="YesNo" ChosenButton="[choice]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;There are no files in the input folder.&quot;+vbNewLine+&quot;Do you want to move the images to the input folder?&quot;]" />
+                <If Condition="[choice.ToLower.Contains(&quot;yes&quot;)]" sap:VirtualizedContainerService.HintSize="484,930" sap2010:WorkflowViewState.IdRef="If_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="426,743" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:MoveFile ContinueOnError="False" Destination="Images" DisplayName="Move Bike image" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="False" Path="Output\Bike\images (2).jfif" />
+                      <ui:MoveFile ContinueOnError="False" Destination="Images" DisplayName="Move Bus image" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_5" Overwrite="False" Path="Output\Bus\Dented bus.jpg" />
+                      <ui:MoveFile ContinueOnError="False" Destination="Images" DisplayName="Move Car image" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_6" Overwrite="False" Path="Output\Car\download (4).jfif" />
+                      <Assign sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="scg:List(x:String)">[FilePaths]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="scg:List(x:String)">[Directory.GetFiles(FolderPath,"*.*",SearchOption.AllDirectories).ToList]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
         </Sequence>
       </If.Else>
     </If>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Indexnumber]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="592,2601.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[FilePaths]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Indexnumber]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1038,2866" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[FilePaths]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item1" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538.666666666667,2462.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1002,2732" sap2010:WorkflowViewState.IdRef="Sequence_18">
             <Sequence.Variables>
               <Variable x:TypeArguments="njl:JArray" Name="ClsObj" />
               <Variable x:TypeArguments="x:String" Name="base64string" />
@@ -213,15 +277,18 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[Path.GetFullPath(item1).ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[UserName]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[Password]" />
-            <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SelectedMLSkill="{x:Reference __ReferenceID0}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" sap2010:Annotation.AnnotationText="This is a generic, retrainable deep learning model to perform Object Detection. This ML Package is pretrained on COCO Dataset so you can directly create an ML Skill which can be used for identifying 80 classes of COCO Dataset. You can also train it on your own data and create an ML Skill and use for performing object detection where it will now work on your data. This deep learning model uses You only look once (YOLO) which a state-of-the-art and one of the most effective object detection algorithms that also encompasses many of the most innovative ideas evolving from the field of computer vision.&#xA;&#xA;Input Description&#xA;Path to the image to be analyzed.&#xA;&#xA;Output Description&#xA;JSON with identified object’s class byte array representation (allows you to see box around objects), identified object’s class - name, score (between 0-1) Example: { &quot;Predicted ByteArray&quot;: &quot;/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgI…TD&quot;, &quot;Predicted Class&quot;: &quot;[{'class': 'book', 'score': ' 0.31'}, {'class': 'dog', 'score': ' 0.53'}, {'class': 'chair', 'score': ' 0.79'}]&quot; }" ApiKey="[Password]" Connection="Endpoint" DisplayName="MLSkill" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="496.666666666667,806.666666666667" sap2010:WorkflowViewState.IdRef="MLSkills_2" Item="[Path.GetFullPath(item1).ToString]" JsonResponse="[jsonResp]" NextPageNum="2" RefreshList="False" SkillURL="[UserName]" TotalCount="1">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="960,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[Path.GetFullPath(item1).ToString]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="960,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[UserName]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="960,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[Password]" />
+            <uma:MLSkills ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Name="{x:Null}" NumberOfRetries="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" StatusCode="{x:Null}" TimeOutMs="{x:Null}" sap2010:Annotation.AnnotationText="This is a generic, retrainable deep learning model to perform Object Detection. This ML Package is pretrained on COCO Dataset so you can directly create an ML Skill which can be used for identifying 80 classes of COCO Dataset. You can also train it on your own data and create an ML Skill and use for performing object detection where it will now work on your data. This deep learning model uses You only look once (YOLO) which a state-of-the-art and one of the most effective object detection algorithms that also encompasses many of the most innovative ideas evolving from the field of computer vision.&#xA;&#xA;Input Description&#xA;Path to the image to be analyzed.&#xA;&#xA;Output Description&#xA;JSON with identified object’s class byte array representation (allows you to see box around objects), identified object’s class - name, score (between 0-1) Example: { &quot;Predicted ByteArray&quot;: &quot;/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgI…TD&quot;, &quot;Predicted Class&quot;: &quot;[{'class': 'book', 'score': ' 0.31'}, {'class': 'dog', 'score': ' 0.53'}, {'class': 'chair', 'score': ' 0.79'}]&quot; }" ApiKey="[Password]" Connection="Endpoint" DisplayName="MLSkill" ExternApiFileType="File" sap:VirtualizedContainerService.HintSize="960,763" sap2010:WorkflowViewState.IdRef="MLSkills_2" Item="[Path.GetFullPath(item1).ToString]" JsonResponse="[jsonResp]" NextPageNum="2" RefreshList="False" SkillURL="[UserName]" TotalCount="1">
               <uma:MLSkills.MLSkillList>
                 <scg:List x:TypeArguments="um:MLSkill" Capacity="4">
-                  <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-uipath.deskover.com/mlskills/5c701b1d-e8f2-4f19-94e4-02cad49ef60f/9907fa4d-fc94-40de-b602-cef02942d7e3/objectdetection" AccountId="5c701b1d-e8f2-4f19-94e4-02cad49ef60f" Description="" Id="0fd75b5b-be4c-43e2-86e1-25a3dab9c184" InputDescription="Path to the image to be analyzed.&#xA;&#xA;" InputType="FILE" Name="ObjectDetection" OutputDescription="JSON with identified object’s class byte array representation (allows you to see box around objects), identified object’s class - name, score (between 0-1) Example: { &quot;Predicted ByteArray&quot;: &quot;/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgI…TD&quot;, &quot;Predicted Class&quot;: &quot;[{'class': 'book', 'score': ' 0.31'}, {'class': 'dog', 'score': ' 0.53'}, {'class': 'chair', 'score': ' 0.79'}]&quot; }&#xA;" ProjectId="1da8f225-aca3-485b-b4c4-44f0ad59aeb0" TenantId="9907fa4d-fc94-40de-b602-cef02942d7e3" />
+                  <x:Reference>__ReferenceID0</x:Reference>
                 </scg:List>
               </uma:MLSkills.MLSkillList>
+              <uma:MLSkills.SelectedMLSkill>
+                <um:MLSkill x:Name="__ReferenceID0" AccessUri="https://ai-uipath.deskover.com/mlskills/5c701b1d-e8f2-4f19-94e4-02cad49ef60f/9907fa4d-fc94-40de-b602-cef02942d7e3/objectdetection" AccountId="5c701b1d-e8f2-4f19-94e4-02cad49ef60f" Description="" Id="0fd75b5b-be4c-43e2-86e1-25a3dab9c184" InputDescription="Path to the image to be analyzed.&#xA;&#xA;" InputType="FILE" Name="ObjectDetection" OutputDescription="JSON with identified object’s class byte array representation (allows you to see box around objects), identified object’s class - name, score (between 0-1) Example: { &quot;Predicted ByteArray&quot;: &quot;/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgI…TD&quot;, &quot;Predicted Class&quot;: &quot;[{'class': 'book', 'score': ' 0.31'}, {'class': 'dog', 'score': ' 0.53'}, {'class': 'chair', 'score': ' 0.79'}]&quot; }&#xA;" ProjectId="1da8f225-aca3-485b-b4c4-44f0ad59aeb0" TenantId="9907fa4d-fc94-40de-b602-cef02942d7e3" />
+              </uma:MLSkills.SelectedMLSkill>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -230,59 +297,81 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uma:MLSkills>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="496.666666666667,62" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jobj]" JsonString="[jsonResp]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[jobj(&quot;Predicted Class&quot;)]" />
-            <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="496.666666666667,62" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_2" JsonArray="[ClsObj]" JsonString="[jobj(&quot;Predicted Class&quot;).ToString]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[ClsObj(0)(&quot;class&quot;).ToString]" />
-            <Assign DisplayName="Base 64 string" sap:VirtualizedContainerService.HintSize="496.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[base64string]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(System.IO.File.ReadAllBytes(item1))]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="496.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_5">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[base64string]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">["data:image/jpeg;base64," + base64string]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="05743f74-6e12-4f18-8615-e9989a748ebc" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Content&quot;,&quot;refreshOnChange&quot;:false,&quot;key&quot;:&quot;content&quot;,&quot;type&quot;:&quot;content&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;content&quot;:&quot;&lt;img src=\&quot;{{data.sampleimage1}}\&quot; width=300 height=400&gt;&quot;,&quot;refreshOnChange&quot;:true,&quot;key&quot;:&quot;html&quot;,&quot;type&quot;:&quot;htmlelement&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;Classification:&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;class&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;columns&quot;:[{&quot;components&quot;:[{&quot;label&quot;:&quot;Submit&quot;,&quot;theme&quot;:&quot;success&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;garbage1&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;hideOnChildrenHidden&quot;:false,&quot;width&quot;:12,&quot;isResetData&quot;:false}],&quot;width&quot;:3,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;},{&quot;components&quot;:[],&quot;width&quot;:3,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;}],&quot;autoAdjust&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;columns1&quot;,&quot;type&quot;:&quot;columns&quot;,&quot;input&quot;:false,&quot;label&quot;:&quot;Columns&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="496.666666666667,210.666666666667" sap2010:WorkflowViewState.IdRef="FormActivity_5" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
-              <ufa:FormActivity.Body>
-                <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="960,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;resp:&quot; +jsonResp]" />
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="960,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jobj]" JsonString="[jsonResp]" />
+            <If Condition="[Not(jsonResp.Contains(&quot;Prediction Failed&quot;))]" sap:VirtualizedContainerService.HintSize="960,1243" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="539,1085" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[jobj(&quot;Predicted Class&quot;)]" />
+                  <ui:DeserializeJsonArray DisplayName="Deserialize JSON Array" sap:VirtualizedContainerService.HintSize="497,60" sap2010:WorkflowViewState.IdRef="DeserializeJsonArray_2" JsonArray="[ClsObj]" JsonString="[jobj(&quot;Predicted Class&quot;).ToString]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[ClsObj(0)(&quot;class&quot;).ToString]" />
+                  <Assign DisplayName="Base 64 string" sap:VirtualizedContainerService.HintSize="497,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[base64string]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(System.IO.File.ReadAllBytes(item1))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="497,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[base64string]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["data:image/jpeg;base64," + base64string]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="05743f74-6e12-4f18-8615-e9989a748ebc" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Content&quot;,&quot;refreshOnChange&quot;:false,&quot;key&quot;:&quot;content&quot;,&quot;type&quot;:&quot;content&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;content&quot;:&quot;&lt;img src=\&quot;{{data.sampleimage1}}\&quot; width=300 height=400&gt;&quot;,&quot;refreshOnChange&quot;:true,&quot;key&quot;:&quot;html&quot;,&quot;type&quot;:&quot;htmlelement&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false},{&quot;label&quot;:&quot;Classification:&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;class&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;columns&quot;:[{&quot;components&quot;:[{&quot;label&quot;:&quot;Submit&quot;,&quot;theme&quot;:&quot;success&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;garbage1&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;hideOnChildrenHidden&quot;:false,&quot;width&quot;:12,&quot;isResetData&quot;:false}],&quot;width&quot;:3,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;},{&quot;components&quot;:[],&quot;width&quot;:3,&quot;offset&quot;:0,&quot;push&quot;:0,&quot;pull&quot;:0,&quot;size&quot;:&quot;md&quot;}],&quot;autoAdjust&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;columns1&quot;,&quot;type&quot;:&quot;columns&quot;,&quot;input&quot;:false,&quot;label&quot;:&quot;Columns&quot;}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="False" sap:VirtualizedContainerService.HintSize="497,209" sap2010:WorkflowViewState.IdRef="FormActivity_5" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False">
+                    <ufa:FormActivity.Body>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </ActivityAction>
+                    </ufa:FormActivity.Body>
+                    <ufa:FormActivity.DelayBody>
+                      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                        <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                      </ActivityAction>
+                    </ufa:FormActivity.DelayBody>
+                    <ufa:FormActivity.FormFieldsCollection>
+                      <InArgument x:TypeArguments="x:String" x:Key="sampleimage1">[base64string]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="class">[jobj("Predicted Class").ToString]</InArgument>
+                    </ufa:FormActivity.FormFieldsCollection>
+                  </ufa:FormActivity>
+                  <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ClsObj(0)(&quot;class&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="497,182" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </ActivityAction>
-              </ufa:FormActivity.Body>
-              <ufa:FormActivity.DelayBody>
-                <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-                  <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_5" />
-                </ActivityAction>
-              </ufa:FormActivity.DelayBody>
-              <ufa:FormActivity.FormFieldsCollection>
-                <InArgument x:TypeArguments="x:String" x:Key="sampleimage1">[base64string]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="class">[jobj("Predicted Class").ToString]</InArgument>
-              </ufa:FormActivity.FormFieldsCollection>
-            </ufa:FormActivity>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[ClsObj(0)(&quot;class&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="496.666666666667,192" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:MoveFile x:Key="car" ContinueOnError="False" Destination="Output\Car" sap:VirtualizedContainerService.HintSize="384,162" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[item1]" />
-              <ui:MoveFile ContinueOnError="{x:Null}" x:Key="motorbike" Destination="Output\Bike" sap:VirtualizedContainerService.HintSize="384,162" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[item1]" />
-              <ui:MoveFile ContinueOnError="{x:Null}" x:Key="bus" Destination="Output\Bus" sap:VirtualizedContainerService.HintSize="384,162" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="False" Path="[item1]" />
-            </Switch>
+                    <ui:MoveFile x:Key="car" ContinueOnError="False" Destination="Output\Car" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[item1]" />
+                    <ui:MoveFile ContinueOnError="{x:Null}" x:Key="motorbike" Destination="Output\Bike" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[item1]" />
+                    <ui:MoveFile ContinueOnError="{x:Null}" x:Key="bus" Destination="Output\Bus" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="False" Path="[item1]" />
+                  </Switch>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Image is not appropriate. Prediction Failed!&quot;+vbNewLine+&quot;Select images of damaged vehicles.&quot;]" />
+                </Sequence>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>

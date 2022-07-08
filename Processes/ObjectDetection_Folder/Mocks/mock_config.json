@@ -1,0 +1,8 @@
+{
+  "mockedWorkflows": [
+    {
+      "mockFilePath": "Mocks\\ObjectDetection_mock.xaml",
+      "sourceWorkflowPath": "ObjectDetection.xaml"
+    }
+  ]
+}
